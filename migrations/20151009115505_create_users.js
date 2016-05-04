@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
 		t.string('firstName').nullable();
 		t.string('lastName').nullable();
 		t.string('email').nullable();
+		t.string('imageUrl');
 	});
 };
 
