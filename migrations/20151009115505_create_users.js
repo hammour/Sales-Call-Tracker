@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
 		t.string('lastName').nullable();
 		t.string('email').nullable();
 		t.string('userType').nullable();
-		t.string('imageUrl');
+		t.string('imageUrl').nullable();
 	});
 };
 
