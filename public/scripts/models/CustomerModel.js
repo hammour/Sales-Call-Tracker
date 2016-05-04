@@ -15,6 +15,6 @@ export default Backbone.Model.extend({
 		deletedAt: null
 
 	},
-	urlRoot: '/api/v1/user',
+	urlRoot: '/api/v1/customer',
 	idAttribute: 'id'
 });
