@@ -40,9 +40,9 @@ export default React.createClass({
 		success: (loggedArg) => {
 				
 			
-			this.state.user.set(loggedArg);
+			// this.state.user.set(loggedArg);
 			console.log('logged in');
-			browserHistory.push('/Dashboard');
+			browserHistory.push('/');
 		},
 		error: (errorArg) => {
 				
