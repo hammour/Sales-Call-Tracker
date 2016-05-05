@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
-import user from '../../models/user';
+//import user from '../../models/User';
 
 
 export default React.createClass({
@@ -36,13 +36,16 @@ export default React.createClass({
 			email: this.refs.email.value,
 			password: this.refs.password.value
 		},
+		headers: {
+			Accept: 'application/json'
+		},
 
 		success: (loggedArg) => {
 				
-			
-			// this.state.user.set(loggedArg);
+			console.log(this.state.user);
+			//this.user.setState(loggedArg);
 			console.log('logged in');
-			browserHistory.push('/');
+			browserHistory.push('/dashboard');
 		},
 		error: (errorArg) => {
 				
