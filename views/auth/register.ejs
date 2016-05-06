@@ -23,6 +23,10 @@
 				<%- error.display('password') %>
 				<input type="password" placeholder="password" name="password">
 			</div>
+			<div>
+				<%- error.display('email') %>
+				<input type="text" placeholder="User Type" name="userType" value="<%= prev.display('body', 'userType') %>">
+			</div>
 			<button>Register</button>
 		</form>
 	</body>

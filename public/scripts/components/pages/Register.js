@@ -8,7 +8,7 @@ export default React.createClass({
 	getInitialState: function(){
 		return {
 			errors: {},
-			user: user
+			user: new user
 		};
 	},
 	render: function() {
@@ -23,6 +23,7 @@ export default React.createClass({
 					<div className="error">{this.state.errors.email ? this.state.errors.email.message : null}</div>
 					<input type="password" placeholder="password" ref="password" />
 					<div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div>
+					<input type="text" placeholder="Type" ref="userType"/>
 					<button type="submit">Register</button>
 				</form>
 			</section>
@@ -37,22 +38,22 @@ export default React.createClass({
 				email: this.refs.email.value,
 				password:this.refs.password.value,
 				firstName: this.refs.firstName.value,
-				lastName: this.refs.lastName.value
+				lastName: this.refs.lastName.value,
+				userType: this.refs.userType.value
 			},
-			// dataType: 'json',
+			dataType: 'json',
 			headers: {
 				Accept: 'application/json'
 			},
 			success: (successArg)=>{
 				console.log(successArg);
 				console.log('success');
-				this.state.user.set(registeredUser);
-				console.log(this.state.user);
-				hashHistory.push('/');
+				//this.state.user.set(registeredUser);
+				// console.log(this.state.user);
+				hashHistory.push('/Login');
 			},
 			error: (errorArg)=>{
-				console.log(errorArg);
-				console.log('errors');
+				
 				this.setState({errors: errorArg.responseJSON});
 			}
 		});

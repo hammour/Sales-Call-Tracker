@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router';
 import $ from 'jquery';
-import user from '../models/user';
+import user from '../models/User';
 import {browserHistory} from 'react-router';
 
 //import Stories from './../collections/StoryCollection';
@@ -15,21 +15,22 @@ export default React.createClass({
 
 	render: function() {
 			return (<nav>
-			<Link to="/Login">Login</Link>
-			<a href="#" onClick={this.logout}>Logout</a>
-			<Link to="/Home">Home</Link>
-			<Link to="/AddCustomer">Add Customer</Link>
-			<Link to="/Register">Register</Link>
-			<Link to="/AddEvent">Add Event</Link>
-			<Link to="/Dashboard">Dashboard</Link>
-			<Link to="/Filter">Filter</Link>
+				<Link to="/Login">Login</Link>
+				<a href="#" onClick={this.logout}>Logout</a>
+				<Link to="/Home">Home</Link>
+				<Link to="/AddCustomer">Add Customer</Link>
+				<Link to="/Register">Register</Link>
+				<Link to="/AddEvent">Add Event</Link>
+				<Link to="/Dashboard">Dashboard</Link>
+				<Link to="/Filter">Filter</Link>
+				<Link to="/ContactUs">Contact Us</Link>
 			
 			</nav>);		
 	},
 
 	logout: function(e) {
 		e.preventDefault();
-		this.state.user.clear();
+		this.setState({user:''});
 		$.ajax({
 			type: 'POST',
 			url: '/auth/logout'

@@ -1,6 +1,6 @@
-import $ from 'jquery';
-import Backbone from 'backbone';
-import {sync, errorHandler} from './ajax';
+// import $ from 'jquery';
+// import Backbone from 'backbone';
+// import {sync, errorHandler} from './ajax';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';
@@ -12,6 +12,7 @@ import Dashboard from './components/pages/Dashboard';
 import Filter from './components/pages/Filter';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
+import ContactUs from './components/pages/ContactUs';
 
 Backbone.sync = sync;
 $.ajaxSetup({
@@ -46,6 +47,7 @@ const router = (
 			<Route path="/addevent" component={AddEvent}/>
 			<Route path="/dashboard" component={Dashboard}/>
 			<Route path="/filter" component={Filter}/>
+			<Route path="/contactus" component={ContactUs}/>
 
 
 		</Route>

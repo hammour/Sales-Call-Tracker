@@ -1,14 +1,14 @@
 import React from 'react';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
-//import user from '../../models/User';
+import user from '../../models/User';
 
 
 export default React.createClass({
 		getInitialState: function() {
 		return {
 			errors: {},
-			user: user
+			user: new user(window.user)
 		};
 	},
 
@@ -41,9 +41,9 @@ export default React.createClass({
 		},
 
 		success: (loggedArg) => {
-				
+			console.log(loggedArg);
 			console.log(this.state.user);
-			//this.user.setState(loggedArg);
+			//this.setState({user:loggedArg});
 			console.log('logged in');
 			browserHistory.push('/dashboard');
 		},
