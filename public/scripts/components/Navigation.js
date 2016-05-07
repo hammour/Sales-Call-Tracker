@@ -8,7 +8,7 @@ import {browserHistory} from 'react-router';
 
 export default React.createClass({
 	getInitialState: function(){
-		return {user:user};
+		return {user:window.user};
 	},
 
 	componentDidMount: function(){},
@@ -16,7 +16,7 @@ export default React.createClass({
 	render: function() {
 			return (<nav>
 				<Link to="/Login">Login</Link>
-				<a href="#" onClick={this.logout}>Logout</a>
+				
 				<Link to="/Home">Home</Link>
 				<Link to="/AddCustomer">Add Customer</Link>
 				<Link to="/Register">Register</Link>
@@ -24,12 +24,14 @@ export default React.createClass({
 				<Link to="/Dashboard">Dashboard</Link>
 				<Link to="/Filter">Filter</Link>
 				<Link to="/ContactUs">Contact Us</Link>
+				<a href="#" onClick={this.logout}>Logout</a>
 			
 			</nav>);		
 	},
 
 	logout: function(e) {
-		e.preventDefault();
+		//e.preventDefault();
+		window.user='';
 		this.setState({user:''});
 		$.ajax({
 			type: 'POST',

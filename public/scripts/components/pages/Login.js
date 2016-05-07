@@ -8,7 +8,7 @@ export default React.createClass({
 		getInitialState: function() {
 		return {
 			errors: {},
-			user: new user(window.user)
+			user:window.user
 		};
 	},
 
@@ -42,8 +42,8 @@ export default React.createClass({
 
 		success: (loggedArg) => {
 			console.log(loggedArg);
-			console.log(this.state.user);
-			//this.setState({user:loggedArg});
+			window.user=loggedArg;
+			this.setState({user:loggedArg});
 			console.log('logged in');
 			browserHistory.push('/dashboard');
 		},

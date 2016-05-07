@@ -1,6 +1,6 @@
-// import $ from 'jquery';
-// import Backbone from 'backbone';
-// import {sync, errorHandler} from './ajax';
+import $ from 'jquery';
+import Backbone from 'backbone';
+import {sync, errorHandler} from './ajax';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, browserHistory, IndexRoute} from 'react-router';

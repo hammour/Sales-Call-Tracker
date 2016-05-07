@@ -41,7 +41,7 @@ export default React.createClass({
 				addressLineTwo: this.refs.addressLineTwo.value,
 				city: this.refs.city.value,
 				state:this.refs.state.value,
-				userId: 11
+				userId: window.user.id
 			},
 			dataType: 'json',
 			headers: {
@@ -61,6 +61,7 @@ export default React.createClass({
 		});
 		//console.log('register code goes here');
 	}
+
 
 });
 
