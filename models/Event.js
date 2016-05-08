@@ -5,10 +5,10 @@ require('./Customer');
 module.exports = bookshelf.model('Event', {
 	tableName: 'events',
 	hasTimestamps: ['createdAt', 'updatedAt', 'deletedAt'],
-	story: function() {
-		return this.belongsTo('User');
+	user: function() {
+		return this.belongsTo('User', 'userId');
 	},
-	student: function() {
-		return this.belongsTo('Customer');
+	customer: function() {
+		return this.belongsTo('Customer','customerId');
 	}
 });

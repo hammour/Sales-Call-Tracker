@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
 		t.text('eventNotes').nullable();
 		t.dateTime('followUpDate').nullable();
 		
-		t.integer('customerID')
+		t.integer('customerId')
 			.unsigned()
 			.notNull()
 			.references('id')

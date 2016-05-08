@@ -19,7 +19,7 @@ export default React.createClass({
 					<input type="text" placeholder="Type of Event"ref="typeOfEvent"/>
 					<input type="text" placeholder="Notes" ref="eventNotes"/>
 					<input type="date"  ref="followUpDate"/>
-					<input type="text" placeholder="Customer ID"ref="customerID"/>
+					<input type="text" placeholder="Customer ID"ref="customerId"/>
 					<input type="text" placeholder="User ID"ref="userId"/>
 					<button type="submit">Submit</button>
 				</form>
@@ -35,7 +35,7 @@ export default React.createClass({
 				typeOfEvent: this.refs.typeOfEvent.value,
 				eventNotes:this.refs.eventNotes.value,
 				followUpDate: this.refs.followUpDate.value,
-				customerID: this.refs.customerID.value,
+				customerId: this.refs.customerId.value,
 				userId: window.user.id
 			},
 			dataType: 'json',

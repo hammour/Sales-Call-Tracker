@@ -5,8 +5,8 @@ export default Backbone.Model.extend({
 		typeOfEvent: '',
 		eventNotes: '',
 		followUpDate: '',
-		CustomerID:'',
-		userID:'',
+		customerId:'',
+		userId:'',
 		createdAt: null,
 		updatedAt: null,
 		deletedAt: null

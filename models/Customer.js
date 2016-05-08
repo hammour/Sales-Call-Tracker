@@ -5,6 +5,6 @@ module.exports = bookshelf.model('Customer', {
 	hasTimestamps: ['createdAt', 'updatedAt', 'deletedAt'],
 
 	user: function() {
-		return this.belongsTo('User');
+		return this.belongsTo('User','userId');
 	}
 });
