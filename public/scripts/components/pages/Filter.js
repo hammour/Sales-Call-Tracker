@@ -1,6 +1,7 @@
 import React from 'react';
 import EventPreview from './../EventPreview';
 import events from './../../collections/EventCollection';
+import users from './../../collections/UserCollection';
 import EventModel from './../../models/EventModel';
 import $ from 'jquery';
 import User from './../../models/User';
@@ -12,9 +13,10 @@ export default React.createClass({
 		return {
 			event: new EventModel,
 			error:'',
-			salesRep: new User,
+			salesRep:  User,
 			events: events,
-			customer: new Customer
+			customer: new Customer,
+			users: users
 		};
 	},
 	
@@ -22,9 +24,9 @@ export default React.createClass({
 	componentDidMount: function(){
 		this.state.event.on('change', (eventData)=> {
 			this.setState({event: this.state.event,
-				salesRep: this.state.event.get('user'),
-				customer: this.state.event.get('customer'),
-				events:events
+				
+				events:events,
+				users:users
 			});
 			
 			
@@ -36,18 +38,25 @@ export default React.createClass({
 				}
 			});
 		this.state.events.fetch();
+
+
+		
 		
 	},
 
 
 	render: function() {
-
+		
 		if(!this.state.event.get(0)){
+
 			return (<div>loading</div>);
 		}
 
 		else { 
+			
+
 			const eventsView= events.map((event,i, array)=>{
+				console.log(this.state.event.get(i).customerId);
 				return(
 					<div >
 			            	<div className="event-container">
@@ -71,7 +80,7 @@ export default React.createClass({
 					); 
 			});
 				
-				console.log(eventsView[1]);
+				//console.log(users);
 				
 				return (
 		        	<div>

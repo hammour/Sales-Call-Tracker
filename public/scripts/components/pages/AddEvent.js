@@ -1,7 +1,7 @@
 import React from 'react';
 
 import $ from 'jquery';
-import{hashHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 import event from '../../models/EventModel';
 
 export default React.createClass({
@@ -47,7 +47,7 @@ export default React.createClass({
 				console.log('success');
 				//this.state.user.set(registeredUser);
 				// console.log(this.state.user);
-				hashHistory.push('/Dashboard');
+				browserHistory.push('/filter');
 			},
 			error: (errorArg)=>{
 				

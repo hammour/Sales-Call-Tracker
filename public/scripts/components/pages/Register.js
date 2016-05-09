@@ -1,7 +1,7 @@
 import React from 'react';
 
 import $ from 'jquery';
-import{hashHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 import user from '../../models/User';
 
 export default React.createClass({
@@ -16,15 +16,15 @@ export default React.createClass({
 			<section>
 				<h1>Register</h1>
 				<form onSubmit={this.register}>
-					<input type="text" placeholder="first name"ref="firstName"/>
-
-					<input type="text" placeholder="last name" ref="lastName"/>
-					<input type="text" placeholder="email" ref="email"/>
-					<div className="error">{this.state.errors.email ? this.state.errors.email.message : null}</div>
-					<input type="password" placeholder="password" ref="password" />
-					<div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div>
-					<input type="text" placeholder="Type" ref="userType"/>
-					<button type="submit">Register</button>
+					<div>First Name<input type="text" placeholder="first name"ref="firstName"/></div>
+					<div>Last Name<input type="text" placeholder="last name" ref="lastName"/></div>
+					<div>Email<input type="text" placeholder="email" ref="email"/></div>
+					<div><div className="error">{this.state.errors.email ? this.state.errors.email.message : null}</div></div>
+					<div>Password<input type="password" placeholder="password" ref="password" /></div>
+					<div><div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div></div>
+					<div>User Type<input type="text" placeholder="Type" ref="userType"/></div>
+					<div>Image Url<input type="text" placeholder="Type" ref="imageUrl"/></div>
+					<div><button type="submit">Register</button></div>
 				</form>
 			</section>
 		);
@@ -39,18 +39,19 @@ export default React.createClass({
 				password:this.refs.password.value,
 				firstName: this.refs.firstName.value,
 				lastName: this.refs.lastName.value,
-				userType: this.refs.userType.value
+				userType: this.refs.userType.value,
+				imageUrl: this.refs.imageUrl.value
 			},
 			dataType: 'json',
 			headers: {
 				Accept: 'application/json'
 			},
 			success: (successArg)=>{
-				console.log(successArg);
-				console.log('success');
+				// console.log(successArg);
+				// console.log('success');
 				//this.state.user.set(registeredUser);
 				// console.log(this.state.user);
-				hashHistory.push('/Login');
+				browserHistory.push('/login');
 			},
 			error: (errorArg)=>{
 				
