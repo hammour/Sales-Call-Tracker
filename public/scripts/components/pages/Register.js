@@ -51,7 +51,11 @@ export default React.createClass({
 					<div className="form-group">
 						<label for="input15" className="col-sm-2 control-label">User Type</label>
 						<div className="col-sm-8">
-							<input className="form-control" id="input15" type="text" placeholder="Type" ref="userType"/>
+							<select className="form-control" placeholder="State"ref="state">
+								<option value="AL">Admin</option>
+								<option value="AK">Sales Manager</option>
+								<option value="AZ">Sales Rep</option>
+							</select>
 						</div>
 					</div>
 
@@ -100,5 +104,8 @@ export default React.createClass({
 	}
 
 });
+
+
+
 
 

@@ -6,6 +6,7 @@ import EventModel from './../../models/EventModel';
 import $ from 'jquery';
 import User from './../../models/User';
 import Customer from './../../models/CustomerModel';
+import DropdownList from 'react-widgets/lib/DropdownList';
 
 
 export default React.createClass({
@@ -13,7 +14,7 @@ export default React.createClass({
 		return {
 			event: new EventModel,
 			error:'',
-			salesReps:  {},
+			salesReps:  new User,
 			events: events,
 			customer: new Customer,
 			users: users
@@ -53,10 +54,13 @@ export default React.createClass({
 
 		else { 
 			
-				
+			const salesRepsOptions = this.state.salesReps.map((rep, i, array)=>{
+				return(<option value={this.state.salesReps[i].id}>{this.state.salesReps[i].firstName}</option>);
+			});
 			const eventsView= events.map((event,i, array)=>{				
 				return(
 					<div >
+
 						<EventPreview 
 							firstName= {this.state.event.get(i).user.firstName}
 							lastName= {this.state.event.get(i).user.lastName}
@@ -70,8 +74,14 @@ export default React.createClass({
 			});
 								
 				return (
+					
 		        	<div>
+
 		            	<h1>Events</h1>
+		            	<select className="form-control" placeholder="State"ref="state">
+								{salesRepsOptions}
+								
+							</select>
 		            	<div>{eventsView}</div>
 		        	</div>
 		        );
