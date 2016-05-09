@@ -13,7 +13,7 @@ export default React.createClass({
 		return {
 			event: new EventModel,
 			error:'',
-			salesRep:  User,
+			salesReps:  {},
 			events: events,
 			customer: new Customer,
 			users: users
@@ -38,10 +38,9 @@ export default React.createClass({
 				}
 			});
 		this.state.events.fetch();
-
-
-		
-		
+		$.get('/api/v1/user', (data)=>{
+			this.setState({salesReps:data});
+		});			
 	},
 
 
@@ -54,34 +53,22 @@ export default React.createClass({
 
 		else { 
 			
-
-			const eventsView= events.map((event,i, array)=>{
-				console.log(this.state.event.get(i).customerId);
+				
+			const eventsView= events.map((event,i, array)=>{				
 				return(
 					<div >
-			            	<div className="event-container">
-			        		<div className="event-left-container">
-				        		<img src='http://beacontechs.com/images/Haythem.png'/>
-				        		<div className="sales-rep-name">{this.state.event.get(i).user.firstName}</div><div>{this.state.event.get(i).user.lastName}</div>
-			        		</div>
-			        		<div className="event-center-container">
-				        		<h4>Event Notes</h4>
-				        		<div className="events-remarks-notes">{this.state.event.get(i).eventNotes}</div>
-			        		</div>
-			        		<div className="event-right-container">
-				        		<h4>Customer: {this.state.event.get(i).customer.name}</h4>
-				        		<p>Type of Event: {this.state.event.get(i).typeOfEvent}</p>
-				        		<h4>Follow up call</h4>
-				        		<p type='date'>{this.convertDay(this.state.event.get(i).followUpDate)}</p>
-			        		</div>
-			        		</div>
-
-		            	</div>
+						<EventPreview 
+							firstName= {this.state.event.get(i).user.firstName}
+							lastName= {this.state.event.get(i).user.lastName}
+							eventNotes={this.state.event.get(i).eventNotes}
+							customerName={this.state.event.get(i).customer.name}
+							typeOfEvent={this.state.event.get(i).typeOfEvent}
+							followUpDate={this.state.event.get(i).followUpDate}
+						/>
+	            	</div>
 					); 
 			});
-				
-				//console.log(users);
-				
+								
 				return (
 		        	<div>
 		            	<h1>Events</h1>
@@ -91,8 +78,11 @@ export default React.createClass({
 	        }
 	},	
 
-	 convertDay: (d)=>{
+	convertDay: (d)=>{
 				var theDay = d.slice(0, 10).split('-'); 
 				return theDay[1] +'/'+ theDay[2] +'/'+ theDay[0];
-				}
-			});
+		},
+	getUsers: function(e){
+		
+	}
+});

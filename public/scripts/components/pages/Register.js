@@ -13,20 +13,58 @@ export default React.createClass({
 	},
 	render: function() {
 		return (
-			<section>
+			<div className="container">
+				
+				
+				<form className="form-horizontal container col-sm-10 " onSubmit={this.register}>
 				<h1>Register</h1>
-				<form onSubmit={this.register}>
-					<div>First Name<input type="text" placeholder="first name"ref="firstName"/></div>
-					<div>Last Name<input type="text" placeholder="last name" ref="lastName"/></div>
-					<div>Email<input type="text" placeholder="email" ref="email"/></div>
-					<div><div className="error">{this.state.errors.email ? this.state.errors.email.message : null}</div></div>
-					<div>Password<input type="password" placeholder="password" ref="password" /></div>
-					<div><div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div></div>
-					<div>User Type<input type="text" placeholder="Type" ref="userType"/></div>
-					<div>Image Url<input type="text" placeholder="Type" ref="imageUrl"/></div>
-					<div><button type="submit">Register</button></div>
+					<div className="form-group">
+						<label for="input11" className="col-sm-2 control-label">First Name</label>
+						<div className="col-sm-8">
+							<input className="form-control" id="input11" type="text" placeholder="first name"ref="firstName"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label for="input12" className="col-sm-2 control-label">Last Name</label>
+						<div className="col-sm-8">
+							<input className="form-control" id="input12" type="text" placeholder="last name" ref="lastName"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label for="input13" className="col-sm-2 control-label">Email</label>
+						<div className="col-sm-8">
+							<input className="form-control" id="input13" type="email" placeholder="email" ref="email"/>
+						</div>
+					</div>
+					<div className="error">{this.state.errors.email ? this.state.errors.email.message : null}</div>
+					
+					<div className="form-group">
+						<label for="input14" className="col-sm-2 control-label">Password</label>
+						<div className="col-sm-8">
+							<input className="form-control" id="input14" type="password" placeholder="password" ref="password" />
+						</div>
+					</div>
+					<div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div>
+					
+					<div className="form-group">
+						<label for="input15" className="col-sm-2 control-label">User Type</label>
+						<div className="col-sm-8">
+							<input className="form-control" id="input15" type="text" placeholder="Type" ref="userType"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label for="input16" className="col-sm-2 control-label">Image Url</label>
+						<div className="col-sm-8">
+							<input className="form-control" id="input16" type="text" placeholder="Type" ref="imageUrl"/>
+						</div>
+					</div>
+
+					<button className="btn-lg btn-default col-sm-offset-3" type="submit">Register</button>
 				</form>
-			</section>
+			</div>
 		);
 	},
 	register: function(e){

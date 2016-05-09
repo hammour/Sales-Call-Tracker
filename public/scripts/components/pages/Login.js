@@ -14,17 +14,33 @@ export default React.createClass({
 
 	render: function() {
 		return (
-			<section className="page-login container">
-				<div className="offset-by-four four columns">
-					<form onSubmit={this.login} className="login-box"> <h1>Login</h1>
-						<input className="u-full-width" type="text" placeholder="email" ref='email' title="Should be a valid email address" required="required"/>
-						<div className="error">{this.state.errors.email ? this.state.errors.email.message : null} </div> 
-						<input className="u-full-width" type="password" placeholder="password" ref='password' title="Password is required and cannot left blank" required="required"/>
-						<div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div>
-						<button className="button-primary" type='submit'> Login </button>
+			
+				<div className="container">
+					<form className="form-horizontal container col-sm-10 " onSubmit={this.login}>
+						<h1>Login</h1>
+							
+							<div className="form-group">
+							<label  className="col-sm-3 control-label">Email</label>
+								<div className="col-sm-7">
+									<input className="form-control" type="text" placeholder="email" ref='email' title="Should be a valid email address" required="required"/>
+									<div className="error">{this.state.errors.email ? this.state.errors.email.message : null} </div> 
+								</div>
+							</div>
+
+							
+							<div className="form-group">	
+							<label  className="col-sm-3 control-label">Password</label>
+								<div className="col-sm-7">
+									<input className="form-control" type="password" placeholder="password" ref='password' title="Password is required and cannot left blank" required="required"/>
+									<div className="error">{this.state.errors.password ? this.state.errors.password.message : null}</div>
+								</div>
+							</div>
+
+
+							<button className="btn-lg btn-default col-sm-offset-3" type='submit'> Login </button>
 					</form>
 				</div>
-			</section>
+			
 		);
 	},
 	login: function(e) {

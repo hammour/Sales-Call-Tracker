@@ -13,17 +13,52 @@ export default React.createClass({
 	},
 	render: function() {
 		return (
-			<section>
+			<div className="container">	
+				<form className="form-horizontal container col-sm-10 " onSubmit={this.register}>
 				<h1>Add an Event</h1>
-				<form onSubmit={this.register}>
-					<input type="text" placeholder="Type of Event"ref="typeOfEvent"/>
-					<input type="text" placeholder="Notes" ref="eventNotes"/>
-					<input type="date"  ref="followUpDate"/>
-					<input type="text" placeholder="Customer ID"ref="customerId"/>
-					<input type="text" placeholder="User ID"ref="userId"/>
-					<button type="submit">Submit</button>
+					<div className="form-group">
+						<label  className="col-sm-3 control-label">Event Type</label>
+						<div className="col-sm-7">	
+							<input className="form-control" type="text" placeholder="Type of Event"ref="typeOfEvent"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label  className="col-sm-3 control-label">Event Notes</label>
+						<div className="col-sm-7">	
+							<input className="form-control" type="text" placeholder="Notes" ref="eventNotes"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label  className="col-sm-3 control-label">Follow Up Date</label>
+						<div className="col-sm-7">	
+							<input className="form-control" type="date"  ref="followUpDate"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label  className="col-sm-3 control-label">Customer ID</label>
+						<div className="col-sm-7">	
+							<input className="form-control" type="text" placeholder="Customer ID"ref="customerId"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						<label  className="col-sm-3 control-label">User ID</label>
+						<div className="col-sm-7">	
+							<input className="form-control" type="text" placeholder="User ID"ref="userId"/>
+						</div>
+					</div>
+
+					<div className="form-group">
+						
+							<button className="btn btn-default col-sm-offset-3" type="submit">Submit</button>
+						
+					</div>
+
 				</form>
-			</section>
+			</div>
 		);
 	},
 	register: function(e){
@@ -54,8 +89,10 @@ export default React.createClass({
 				this.setState({errors: errorArg.responseJSON});
 			}
 		});
+
 		//console.log('register code goes here');
 	}
+	
 
 
 });

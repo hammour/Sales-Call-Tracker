@@ -13,19 +13,55 @@ export default React.createClass({
 	},
 	render: function() {
 		return (
-			<section>
-				<h1>Add Customer</h1>
-				<form onSubmit={this.register}>
-					<input type="text" placeholder="Customer Name"ref="name"/>
-					<input type="text" placeholder="Contact Name" ref="contactName"/>
-					<input type="text" placeholder="email" ref="email"/>
-					<input type="text" placeholder="Address Line One"ref="addressLineOne"/>
-					<input type="text" placeholder="Address Line Two"ref="addressLineTwo"/>
-					<input type="text" placeholder="City"ref="city"/>
-					<input type="text" placeholder="State"ref="state"/>
-					<button type="submit">Register</button>
+			<div className="container">
+				
+				<form className="form-horizontal container col-sm-10 " onSubmit={this.register}>
+					<h1>Add Customer</h1>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">Customer Name</label>
+							<div className="col-sm-7">
+								<input className="form-control" type="text" placeholder="Customer Name"ref="name"/>
+							</div>
+						</div>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">Contact Name</label>
+							<div className="col-sm-7">
+								<input className="form-control" type="text" placeholder="Contact Name" ref="contactName"/>
+							</div>
+						</div>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">Email</label>
+							<div className="col-sm-7">
+								<input className="form-control" type="email" placeholder="email" ref="email"/>
+							</div>
+						</div>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">Address Line 1</label>
+							<div className="col-sm-7">
+								<input className="form-control" type="text" placeholder="Address Line One"ref="addressLineOne"/>
+							</div>
+						</div>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">Address Line 2</label>
+							<div className="col-sm-7">
+								<input className="form-control" type="text" placeholder="Address Line Two"ref="addressLineTwo"/>
+							</div>
+						</div>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">City</label>
+							<div className="col-sm-7">
+								<input className="form-control" type="text" placeholder="City"ref="city"/>
+							</div>
+						</div>
+						<div className="form-group">
+							<label  className="col-sm-3 control-label">State</label>	
+							<div className="col-sm-7">
+								<input className="form-control" type="text" placeholder="State"ref="state"/>
+							</div>
+						</div>
+							<button className="btn-lg btn-default col-sm-offset-3" type="submit">Register</button>
 				</form>
-			</section>
+			</div>
 		);
 	},
 	register: function(e){
