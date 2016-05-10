@@ -6,7 +6,7 @@ import EventModel from './../../models/EventModel';
 import $ from 'jquery';
 import User from './../../models/User';
 import Customer from './../../models/CustomerModel';
-import DropdownList from 'react-widgets/lib/DropdownList';
+
 
 
 export default React.createClass({
@@ -47,7 +47,7 @@ export default React.createClass({
 
 	render: function() {
 		
-		if(!this.state.event.get(0)){
+		if(!this.state.event.get(0)||(!this.state.salesReps)){
 
 			return (<div>loading</div>);
 		}
@@ -78,7 +78,8 @@ export default React.createClass({
 		        	<div>
 
 		            	<h1>Events</h1>
-		            	<select className="form-control" placeholder="State"ref="state">
+		            	<select className="form-control" ref="salesUser">
+								<option value='all'>All</option>
 								{salesRepsOptions}
 								
 							</select>

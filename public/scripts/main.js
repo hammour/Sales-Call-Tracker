@@ -30,7 +30,7 @@ $.ajaxSetup({
 });
 
 function requireAuth(nextState, replace) {
-	  if (!user.get('id')) {
+	  if (!window.user.userType) {
 	    replace({
 	      pathname: '/login'
 	    });
@@ -42,11 +42,11 @@ const router = (
 			<Route path="/" component={App}>
 			<Route path="/home" component={Home}/>
 			<Route path="/login" component={Login}/>
-			<Route path="/register" component={Register}/>
-			<Route path="/addcustomer" component={AddCustomer}/>
-			<Route path="/addevent" component={AddEvent}/>
-			<Route path="/dashboard" component={Dashboard}/>
-			<Route path="/filter" component={Filter}/>
+			<Route path="/register" component={Register} onEnter={requireAuth}/>
+			<Route path="/addcustomer" component={AddCustomer} onEnter={requireAuth}/>
+			<Route path="/addevent" component={AddEvent} onEnter={requireAuth}/>
+			<Route path="/dashboard" component={Dashboard} onEnter={requireAuth}/>
+			<Route path="/filter" component={Filter} onEnter={requireAuth}/>
 			<Route path="/contactus" component={ContactUs}/>
 
 
