@@ -55,14 +55,22 @@ export default React.createClass({
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Event Type</label>
 						<div className="col-sm-7">	
-							<input className="form-control" type="text" placeholder="Type of Event"ref="typeOfEvent"/>
+							<select className="form-control" ref="typeOfEvent">
+								<option value='visit'>Visit</option>
+								<option value='call'>Call</option>
+								<option value='email'>Email</option>
+								
+								<option value='fax'>Fax</option>
+								<option value='regularMail'>Regular Mail</option>
+								<option value='other'>Other</option>
+							</select>
 						</div>
 					</div>
 
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Event Notes</label>
 						<div className="col-sm-7">	
-							<input className="form-control" type="text" placeholder="Notes" ref="eventNotes"/>
+							<textarea className="form-control" type="text" rows="3" placeholder="Notes" ref="eventNotes"/>
 						</div>
 					</div>
 
