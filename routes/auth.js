@@ -109,7 +109,9 @@ router.post('/register', validateLocalCredentials, function(req, res, next) {
 				let newUser = new UserModel({
 					firstName: req.body.firstName,
 					lastName: req.body.lastName,
-					email: req.body.email
+					email: req.body.email,
+					userType: req.body.userType,
+					imageUrl: req.body.imageUrl
 				});
 				newUser.save(null, {transacting: t})
 				.then(function(user) {

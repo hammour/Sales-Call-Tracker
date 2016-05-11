@@ -17,7 +17,11 @@ export default React.createClass({
 			salesReps:  new User,
 			events: events,
 			customer: new Customer,
-			users: users
+			users: users,
+			salesUserFilter: 'all',
+			eventsTypeFilter: 'all',
+			customerFilter: 'all'
+
 		};
 	},
 	
@@ -41,7 +45,8 @@ export default React.createClass({
 		this.state.events.fetch();
 		$.get('/api/v1/user', (data)=>{
 			this.setState({salesReps:data});
-		});			
+		});
+		this.getUsers();	
 	},
 
 
@@ -57,38 +62,66 @@ export default React.createClass({
 		}
 
 		else { 
-			console.log(this.state.salesReps);
+			//console.log(this.state.salesReps);
 			
 			const salesRepsOptions = this.state.salesReps.map((rep, i, array)=>{
-				return(<option value={this.state.salesReps[i].id}>{this.state.salesReps[i].firstName}</option>);
+				return(<option value={this.state.salesReps[i].id}>{this.state.salesReps[i].firstName+' '+this.state.salesReps[i].lastName}</option>);
 			});
-			const eventsView= events.map((event,i, array)=>{				
-				return(
-					<div >
-
-						<EventPreview 
-							firstName= {this.state.event.get(i).user.firstName}
-							lastName= {this.state.event.get(i).user.lastName}
-							eventNotes={this.state.event.get(i).eventNotes}
-							customerName={this.state.event.get(i).customer.name}
-							typeOfEvent={this.state.event.get(i).typeOfEvent}
-							followUpDate={this.state.event.get(i).followUpDate}
-						/>
-	            	</div>
-					); 
-			});
+			const eventsView= events.map((event,i, array)=>{
 								
+				if (this.state.salesUserFilter==='all'){
+					return(
+						<div>
+							<EventPreview  
+								firstName= {this.state.event.get(i).user.firstName}
+								lastName= {this.state.event.get(i).user.lastName}
+								eventNotes={this.state.event.get(i).eventNotes}
+								customerName={this.state.event.get(i).customer.name}
+								typeOfEvent={this.state.event.get(i).typeOfEvent}
+								followUpDate={this.state.event.get(i).followUpDate}/>
+		            	</div>
+						); 
+				}
+				else if (this.state.salesUserFilter==this.state.event.get(i).user.id){
+					return(
+						<div>
+							<EventPreview  
+								firstName= {this.state.event.get(i).user.firstName}
+								lastName= {this.state.event.get(i).user.lastName}
+								eventNotes={this.state.event.get(i).eventNotes}
+								customerName={this.state.event.get(i).customer.name}
+								typeOfEvent={this.state.event.get(i).typeOfEvent}
+								followUpDate={this.state.event.get(i).followUpDate}/>
+		            	</div>
+						); 
+
+				}
+				else{
+						return(
+							<div></div>);
+				}
+			});
+			//	console.log(salesUser);				
 				return (
 					
 		        	<div className="container">
 
 		            	<h1>Events</h1>
-		            	<select className="form-control" ref="salesUser">
-								<option value='all'>All</option>
-								{salesRepsOptions}
-								
-							</select>
-		            	<div>{eventsView}</div>
+		            	<form className="form-horizontal  col-sm-10 " onSubmit={this.getUsers}>
+		            	<div className="form-group">
+			            	<label  className="col-sm-5 control-label">Filter Events by Sales Rep</label>	
+			            	<div className="col-sm-7">
+				            	<select className="form-control" ref="salesUser">
+										<option value='all'>All</option>
+										{salesRepsOptions}		
+								</select>
+							</div>
+						</div>
+						<div className="form-group">
+							<button className="button" type="submit">Filter/Update</button>
+						</div>
+						</form>
+		            	<div className="col-sm-12">{eventsView}</div>
 		        	</div>
 		        );
 	        }
@@ -99,6 +132,10 @@ export default React.createClass({
 				return theDay[1] +'/'+ theDay[2] +'/'+ theDay[0];
 		},
 	getUsers: function(e){
-		
+		e.preventDefault();
+		console.log(this.state.salesUserFilter);
+		this.setState({salesUserFilter: this.refs.salesUser.value
+			});
+		console.log(this.state.event.get(0).user.id);
 	}
 });
