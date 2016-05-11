@@ -36,7 +36,7 @@ export default React.createClass({
 							</div>
 						</div>
 					
-					<input className="btn-lg btn-default col-sm-offset-3" type="button" id="submit" value="Send Message"/>
+					<input  className="button" type="button" id="submit" value="Send Message"/>
 				</form>
 			</div>
 

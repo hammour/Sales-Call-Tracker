@@ -3,15 +3,51 @@ import React from 'react';
 import $ from 'jquery';
 import {browserHistory} from 'react-router';
 import event from '../../models/EventModel';
+// import Customer from './../../models/CustomerModel';
+import User from './../../models/User';
+import Customer from './../../collections/CustomerCollection';
 
 export default React.createClass({
 	getInitialState: function(){
 		return {
 			errors: {},
-			event: new event
+			event: new event,
+			customer: Customer,
+			userList: new User
 		};
 	},
+	componentDidMount: function(){
+		
+		// this.state.customer.fetch({
+		// 	data: 'customer',
+		// 	error: (model, error) => {
+		// 		this.setState({error: error.responseJSON.message});
+		// 		}
+		// 	});	
+		
+		$.get('/api/v1/user', (data)=>{
+			this.setState({
+				userList:data});
+		});	
+		$.get('/api/v1/customer', (data)=>{
+			this.setState({
+				customer:data});
+		});	
+
+	},
 	render: function() {
+		if (!this.state.userList[0]){return (<div>Still loading</div>);}
+			else if(!this.state.customer[0]){return (<div>Still loading</div>);}
+			else{
+				const userListOptions = this.state.userList.map((rep, i, array)=>{
+				return(<option value={this.state.userList[i].id}>{this.state.userList[i].firstName}</option>);
+				});
+				const customerListOptions = this.state.customer.map((rep, i, array)=>{
+				return(<option value={this.state.customer[i].id}>{this.state.customer[i].name}</option>);
+			});
+				console.log(this.state.customer[0].name);
+
+			
 		return (
 			<div className="container">	
 				<form className="form-horizontal container col-sm-10 " onSubmit={this.register}>
@@ -40,27 +76,33 @@ export default React.createClass({
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Customer ID</label>
 						<div className="col-sm-7">	
-							<input className="form-control" type="text" placeholder="Customer ID"ref="customerId"/>
+							<select className="form-control" ref="customerId">
+								{customerListOptions}
+							</select>
 						</div>
 					</div>
 
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">User ID</label>
 						<div className="col-sm-7">	
-							<input className="form-control" type="text" placeholder="User ID"ref="userId"/>
+							
+							<select className="form-control" ref="userId">
+								{userListOptions}
+							</select>
 						</div>
 					</div>
 
 					<div className="form-group">
 						
-							<button className="btn btn-default col-sm-offset-3" type="submit">Submit</button>
+							<button className="button" type="submit">Submit</button>
 						
 					</div>
 
 				</form>
 			</div>
 		);
-	},
+	}
+},
 	register: function(e){
 		e.preventDefault();
 		$.ajax({

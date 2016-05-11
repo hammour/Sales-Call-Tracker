@@ -66,7 +66,7 @@ export default React.createClass({
 						</div>
 					</div>
 
-					<button className="btn-lg btn-default col-sm-offset-3" type="submit">Register</button>
+					<button className="button" type="submit">Register</button>
 				</form>
 			</div>
 		);

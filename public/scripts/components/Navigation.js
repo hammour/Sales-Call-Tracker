@@ -33,7 +33,7 @@ export default React.createClass({
 			</nav>);
 		}
 		else if(window.user.userType) {
-			return (<nav className="navbar navbar-default">
+			return (<nav className="navbar">
 				<div className="container-fluid">
 				
 				<div className="navbar-brand"><Link to="/Home">Home</Link></div>
@@ -54,9 +54,9 @@ export default React.createClass({
 				<div className="container-fluid">
 				
 				<div className="navbar-brand"><Link to="/Home">Home</Link></div>
-				<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
 				<div className="navbar-brand"><Link to="/Login">Login</Link></div>
-				<div className="navbar-brand"><a href="#" onClick={this.logout}>Logout</a></div>
+				<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
+				
 				</div>
 			
 			</nav>);

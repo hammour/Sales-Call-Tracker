@@ -47,12 +47,17 @@ export default React.createClass({
 
 	render: function() {
 		
-		if(!this.state.event.get(0)||(!this.state.salesReps)){
+		if(!this.state.event.get(0)){
 
-			return (<div>loading</div>);
+			return (<div>Still loading</div>);
+		}
+		else if(!this.state.salesReps){
+
+			return (<div>Still loading</div>);
 		}
 
 		else { 
+			console.log(this.state.salesReps);
 			
 			const salesRepsOptions = this.state.salesReps.map((rep, i, array)=>{
 				return(<option value={this.state.salesReps[i].id}>{this.state.salesReps[i].firstName}</option>);
@@ -75,7 +80,7 @@ export default React.createClass({
 								
 				return (
 					
-		        	<div>
+		        	<div className="container">
 
 		            	<h1>Events</h1>
 		            	<select className="form-control" ref="salesUser">
