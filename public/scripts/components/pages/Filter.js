@@ -20,7 +20,8 @@ export default React.createClass({
 			users: users,
 			salesUserFilter: 'all',
 			eventsTypeFilter: 'all',
-			customerFilter: 'all'
+			customerFilter: 'all',
+			customerData: new Customer
 
 		};
 	},
@@ -46,6 +47,9 @@ export default React.createClass({
 		$.get('/api/v1/user', (data)=>{
 			this.setState({salesReps:data});
 		});
+		$.get('/api/v1/customer', (data)=>{
+			this.setState({customerData:data});
+		});
 		this.getUsers();	
 	},
 
@@ -62,43 +66,85 @@ export default React.createClass({
 		}
 
 		else { 
-			//console.log(this.state.salesReps);
+			// console.log(this.stat.event.get(0).customer);
 			
 			const salesRepsOptions = this.state.salesReps.map((rep, i, array)=>{
 				return(<option value={this.state.salesReps[i].id}>{this.state.salesReps[i].firstName+' '+this.state.salesReps[i].lastName}</option>);
 			});
+			const customerOptions = this.state.customerData.map((rep, i, array)=>{
+				return(<option value={this.state.customerData[i].id}>{this.state.customerData[i].name}</option>);
+			});
 			const eventsView= events.map((event,i, array)=>{
-								
-				if (this.state.salesUserFilter==='all'){
-					return(
-						<div>
-							<EventPreview  
-								firstName= {this.state.event.get(i).user.firstName}
-								lastName= {this.state.event.get(i).user.lastName}
-								eventNotes={this.state.event.get(i).eventNotes}
-								customerName={this.state.event.get(i).customer.name}
-								typeOfEvent={this.state.event.get(i).typeOfEvent}
-								followUpDate={this.state.event.get(i).followUpDate}/>
-		            	</div>
-						); 
-				}
-				else if (this.state.salesUserFilter==this.state.event.get(i).user.id){
-					return(
-						<div>
-							<EventPreview  
-								firstName= {this.state.event.get(i).user.firstName}
-								lastName= {this.state.event.get(i).user.lastName}
-								eventNotes={this.state.event.get(i).eventNotes}
-								customerName={this.state.event.get(i).customer.name}
-								typeOfEvent={this.state.event.get(i).typeOfEvent}
-								followUpDate={this.state.event.get(i).followUpDate}/>
-		            	</div>
-						); 
+				if (this.state.customerFilter==='all')	{			
+					if (this.state.salesUserFilter==='all'){
+						return(
+							<div>
+								<EventPreview  
+									firstName= {this.state.event.get(i).user.firstName}
+									lastName= {this.state.event.get(i).user.lastName}
+									eventNotes={this.state.event.get(i).eventNotes}
+									customerName={this.state.event.get(i).customer.name}
+									typeOfEvent={this.state.event.get(i).typeOfEvent}
+									followUpDate={this.state.event.get(i).followUpDate}/>
+			            	</div>
+							); 
+					}
+					else if (this.state.salesUserFilter==this.state.event.get(i).user.id){
+						return(
+							<div>
+								<EventPreview  
+									firstName= {this.state.event.get(i).user.firstName}
+									lastName= {this.state.event.get(i).user.lastName}
+									eventNotes={this.state.event.get(i).eventNotes}
+									customerName={this.state.event.get(i).customer.name}
+									typeOfEvent={this.state.event.get(i).typeOfEvent}
+									followUpDate={this.state.event.get(i).followUpDate}/>
+			            	</div>
+							); 
 
+					}
+					else{
+							return(
+								<div></div>);
+					}
+				}
+				
+				else if(this.state.customerFilter==this.state.event.get(i).customer.id){
+					if (this.state.salesUserFilter==='all'){
+						return(
+							<div>
+								<EventPreview  
+									firstName= {this.state.event.get(i).user.firstName}
+									lastName= {this.state.event.get(i).user.lastName}
+									eventNotes={this.state.event.get(i).eventNotes}
+									customerName={this.state.event.get(i).customer.name}
+									typeOfEvent={this.state.event.get(i).typeOfEvent}
+									followUpDate={this.state.event.get(i).followUpDate}/>
+			            	</div>
+							); 
+					}
+					else if (this.state.salesUserFilter==this.state.event.get(i).user.id){
+						return(
+							<div>
+								<EventPreview  
+									firstName= {this.state.event.get(i).user.firstName}
+									lastName= {this.state.event.get(i).user.lastName}
+									eventNotes={this.state.event.get(i).eventNotes}
+									customerName={this.state.event.get(i).customer.name}
+									typeOfEvent={this.state.event.get(i).typeOfEvent}
+									followUpDate={this.state.event.get(i).followUpDate}/>
+			            	</div>
+							); 
+
+					}
+					else{
+							return(
+								<div></div>);
+					}
 				}
 				else{
-						return(
-							<div></div>);
+					return(
+								<div></div>);
 				}
 			});
 			//	console.log(salesUser);				
@@ -114,6 +160,15 @@ export default React.createClass({
 				            	<select className="form-control" ref="salesUser">
 										<option value='all'>All</option>
 										{salesRepsOptions}		
+								</select>
+							</div>
+						</div>
+						<div className="form-group">
+			            	<label  className="col-sm-5 control-label">Filter Events by Customer</label>	
+			            	<div className="col-sm-7">
+				            	<select className="form-control" ref="customerOptionSelection">
+										<option value='all'>All</option>
+										{customerOptions}		
 								</select>
 							</div>
 						</div>
@@ -134,7 +189,9 @@ export default React.createClass({
 	getUsers: function(e){
 		e.preventDefault();
 		console.log(this.state.salesUserFilter);
-		this.setState({salesUserFilter: this.refs.salesUser.value
+		this.setState({
+			salesUserFilter: this.refs.salesUser.value,
+			customerFilter: this.refs.customerOptionSelection.value
 			});
 		console.log(this.state.event.get(0).user.id);
 	}
