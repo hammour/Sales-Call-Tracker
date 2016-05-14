@@ -18,48 +18,42 @@ export default React.createClass({
 	render: function() {
 		if (window.user.userType === 'admin') {
 			return (<nav className="navbar navbar-default">
-				<div className="container-fluid">
-				
-				<div className="navbar-brand"><Link to="/Home">Home</Link></div>
-				<div className="navbar-brand"><Link to="/AddCustomer">Add Customer</Link></div>
-				<div className="navbar-brand"><Link to="/Register">Register</Link></div>
-				<div className="navbar-brand"><Link to="/AddEvent">Add Event</Link></div>
-				<div className="navbar-brand"><Link to="/Dashboard">Dashboard</Link></div>
-				<div className="navbar-brand"><Link to="/Filter">Filter</Link></div>
-				<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
-				<div className="navbar-brand"><a href="#" onClick={this.logout}>Logout</a></div>
-				</div>
+						<div className="container-fluid">
+						
+							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
+							<div className="navbar-brand"><Link to="/Dashboard">Dashboard</Link></div>
+							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>
+							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
+							<div className="navbar-brand"><a href="#" onClick={this.logout}>Logout</a></div>
+						</div>
 			
-			</nav>);
+					</nav>);
 		}
 		else if(window.user.userType) {
 			return (<nav className="navbar">
-				<div className="container-fluid">
-				
-				<div className="navbar-brand"><Link to="/Home">Home</Link></div>
-				<div className="navbar-brand"><Link to="/AddCustomer">Add Customer</Link></div>
-				<div className="navbar-brand"><Link to="/Register">Register</Link></div>
-				<div className="navbar-brand"><Link to="/AddEvent">Add Event</Link></div>
-				<div className="navbar-brand"><Link to="/Dashboard">Dashboard</Link></div>
-				<div className="navbar-brand"><Link to="/Filter">Filter</Link></div>
-				<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
-				<div className="navbar-brand"><a href="#" onClick={this.logout}>Logout</a></div>
-				</div>
-			
-			</nav>);
+						<div className="container-fluid">
+						
+							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
+							<div className="navbar-brand"><Link to="/salesDash">Dashboard</Link></div>
+							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>
+							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
+							<div className="navbar-brand"><a href="#" onClick={this.logout}>Logout</a></div>
+						</div>
+					
+					</nav>);
 
 		}
 		else{
 			return (<nav className="navbar navbar-default">
-				<div className="container-fluid">
-				
-				<div className="navbar-brand"><Link to="/Home">Home</Link></div>
-				<div className="navbar-brand"><Link to="/Login">Login</Link></div>
-				<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
-				
-				</div>
-			
-			</nav>);
+						<div className="container-fluid">
+						
+							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
+							<div className="navbar-brand"><Link to="/Login">Login</Link></div>
+							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
+							
+						</div>
+					
+					</nav>);
 
 		}
 

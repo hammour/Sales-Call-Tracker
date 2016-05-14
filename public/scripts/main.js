@@ -13,6 +13,7 @@ import Filter from './components/pages/Filter';
 import Home from './components/pages/Home';
 import Register from './components/pages/Register';
 import ContactUs from './components/pages/ContactUs';
+import SalesDash from './components/pages/SalesDash';
 
 Backbone.sync = sync;
 $.ajaxSetup({
@@ -48,6 +49,7 @@ const router = (
 			<Route path="/dashboard" component={Dashboard} onEnter={requireAuth}/>
 			<Route path="/filter" component={Filter} onEnter={requireAuth}/>
 			<Route path="/contactus" component={ContactUs}/>
+			<Route path="/salesdash" component={SalesDash} onEnter={requireAuth}/>
 
 
 		</Route>

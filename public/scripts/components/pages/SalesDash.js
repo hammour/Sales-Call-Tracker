@@ -1,11 +1,14 @@
 import React from 'react';
 import EventPreview from './../EventPreview';
+import salesAddEvent from './addEvent';
 import events from './../../collections/EventCollection';
-import users from './../../collections/UserCollection';
+import logEvent from './logEvent';
 import EventModel from './../../models/EventModel';
 import $ from 'jquery';
 import User from './../../models/User';
 import Customer from './../../models/CustomerModel';
+
+import { Button, Modal } from 'react-bootstrap';
 
 
 
@@ -17,12 +20,12 @@ export default React.createClass({
 			salesReps:  new User,
 			events: events,
 			customer: new Customer,
-			users: users,
+			
 			salesUserFilter: 'all',
 			eventsTypeFilter: 'all',
 			customerFilter: 'all',
-			customerData: new Customer
-
+			customerData: new Customer,
+			showModal: false
 		};
 	},
 	
@@ -31,8 +34,8 @@ export default React.createClass({
 		this.state.event.on('change', (eventData)=> {
 			this.setState({event: this.state.event,
 				
-				events:events,
-				users:users
+				events:events
+				
 			});
 			
 			
@@ -54,6 +57,7 @@ export default React.createClass({
 	},
 
 
+
 	render: function() {
 		
 		if(!this.state.event.get(0)){
@@ -67,10 +71,8 @@ export default React.createClass({
 
 		else { 
 			// console.log(this.stat.event.get(0).customer);
+			 window.setTimeout(1000);
 			
-			const salesRepsOptions = this.state.salesReps.map((rep, i, array)=>{
-				return(<option value={this.state.salesReps[i].id}>{this.state.salesReps[i].firstName+' '+this.state.salesReps[i].lastName}</option>);
-			});
 			const customerOptions = this.state.customerData.map((rep, i, array)=>{
 				return(<option value={this.state.customerData[i].id}>{this.state.customerData[i].name}</option>);
 			});
@@ -152,17 +154,80 @@ export default React.createClass({
 					
 		        	<div className="container">
 
-		            	<h1>Events</h1>
+		            	<div className='sales-dash-heading'>
+		            		<h2>My Events</h2>
+		            		<button className="button" onClick={this.open}>+ADD</button>	
+	            		</div>
+	            		
+
+
+
+	            		        <Modal show={this.state.showModal} onHide={this.close}>
+					          <Modal.Header closeButton>
+					            <Modal.Title>Modal heading</Modal.Title>
+					          </Modal.Header>
+					          <Modal.Body>
+					 		
+					 		
+						<label  className="col-sm-3 control-label">Event Type</label>
+							
+							<select className="form-control" ref="typeOfEventInput">
+								<option value='visit'>Visit</option>
+								<option value='call'>Call</option>
+								<option value='email'>Email</option>
+								
+								<option value='fax'>Fax</option>
+								<option value='regularMail'>Regular Mail</option>
+								<option value='other'>Other</option>
+							</select>
+					
+
+					
+						<label  className="col-sm-3 control-label">Event Notes</label>
+							
+							<textarea className="form-control" type="text" rows="3" placeholder="Notes" ref="eventNotesInput"/>
+					
+
+					
+						<label  className="col-sm-3 control-label">Follow Up Date</label>
+							
+							<input className="form-control" type="date"  ref="followUpDateInput"/>
+					
+
+					
+						<label  className="col-sm-3 control-label">Customer ID</label>
+							
+							<select className="form-control" ref="customerIdInput">
+								{customerOptions}
+							</select>
+						
+
+					
+						
+						
+					
+
+		
+						
+							<button onClick= {this.register}className="button" type="submit">Submit</button>
+				
+				         	
+					          </Modal.Body>
+					          <Modal.Footer>
+					            <Button onClick={this.close}>Close</Button>
+					          </Modal.Footer>
+					        </Modal>
+					      
+
+
+
+
+
+
+
+
 		            	<form className="form-horizontal  col-sm-12 filter-form" onSubmit={this.getUsers}>
-		            	<div className="form-group">
-			            	<label  className="col-sm-3 control-label">Filter Events by Sales Rep</label>	
-			            	<div className="col-sm-7">
-				            	<select className="form-control" ref="salesUser">
-										<option value='all'>All</option>
-										{salesRepsOptions}		
-								</select>
-							</div>
-						</div>
+		
 						<div className="form-group">
 			            	<label  className="col-sm-3 control-label">Filter Events by Customer</label>	
 			            	<div className="col-sm-7">
@@ -172,8 +237,8 @@ export default React.createClass({
 								</select>
 							</div>
 						</div>
-						<div className="form-group">
-							<button className="button" type="submit">Filter/Update</button>
+						<div className=" col-sm-offset-3">
+							<button className="button " type="submit">Filter/Update</button>
 						</div>
 						</form>
 		            	<div className="col-sm-12">{eventsView}</div>
@@ -190,9 +255,57 @@ export default React.createClass({
 		e.preventDefault();
 		console.log(this.state.salesUserFilter);
 		this.setState({
-			salesUserFilter: this.refs.salesUser.value,
+			salesUserFilter: window.user.id,
 			customerFilter: this.refs.customerOptionSelection.value
 			});
-		console.log(this.state.event.get(0).user.id);
+		
+	},
+
+	close() {
+    this.setState({ showModal: false });
+	},
+
+	open() {
+	this.setState({ showModal: true });
+	},
+	register: function(e){
+
+	e.preventDefault();
+	console.log(this.refs.typeOfEventInput.value);
+	$.ajax({
+		url:'/api/v1/event',
+		type: 'POST',
+		data:{
+			typeOfEvent: this.refs.typeOfEventInput.value,
+			eventNotes:this.refs.eventNotesInput.value,
+			followUpDate: this.refs.followUpDateInput.value,
+			customerId: this.refs.customerIdInput.value,
+			userId: window.user.id
+		},
+		dataType: 'json',
+		headers: {
+			Accept: 'application/json'
+		},
+		success: (successArg)=>{
+			console.log('logged');
+			//$('form').children('input:not(#submit)').val('');
+			//browserHistory.push('/filter');
+
+
+
+
+		},
+		error: (errorArg)=>{
+			console.log('nope');
+			this.setState({errors: errorArg.responseJSON});
+		}
+		});
+
+		console.log('register code goes here');
 	}
 });
+
+
+
+
+
