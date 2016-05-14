@@ -55,7 +55,7 @@ export default React.createClass({
 
 
 	render: function() {
-		
+		setTimeout(1000);
 		if(!this.state.event.get(0)){
 
 			return (<div>Still loading</div>);
@@ -80,8 +80,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -93,8 +93,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -114,8 +114,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -127,8 +127,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -147,7 +147,7 @@ export default React.createClass({
 								<div></div>);
 				}
 			});
-			//	console.log(salesUser);				
+				console.log(this.state.event.get(0).user.firstName);				
 				return (
 					
 		        	<div className="container">
