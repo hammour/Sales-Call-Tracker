@@ -82,8 +82,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -95,8 +95,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -116,8 +116,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -129,8 +129,8 @@ export default React.createClass({
 						return(
 							<div>
 								<EventPreview  
-									firstName= {this.state.event.get(i).user.firstName}
-									lastName= {this.state.event.get(i).user.lastName}
+									userFirstName= {this.state.event.get(i).user.firstName}
+									userLastName= {this.state.event.get(i).user.lastName}
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
@@ -154,7 +154,7 @@ export default React.createClass({
 					
 		        	<div className="container">
 
-		            	<div className='sales-dash-heading'>
+		            	<div className='sales-dash-heading '>
 		            		<h2>My Events</h2>
 		            		<button className="button" onClick={this.open}>+ADD</button>	
 	            		</div>
@@ -226,7 +226,7 @@ export default React.createClass({
 
 
 
-		            	<form className="form-horizontal  col-sm-12 filter-form" onSubmit={this.getUsers}>
+		            	<form className="form-horizontal  col-sm-10 filter-form" onSubmit={this.getUsers}>
 		
 						<div className="form-group">
 			            	<label  className="col-sm-3 control-label">Filter Events by Customer</label>	
@@ -237,7 +237,7 @@ export default React.createClass({
 								</select>
 							</div>
 						</div>
-						<div className=" col-sm-offset-3">
+						<div className=" col-sm-offset-5">
 							<button className="button " type="submit">Filter/Update</button>
 						</div>
 						</form>
