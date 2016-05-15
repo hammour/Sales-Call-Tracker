@@ -1,6 +1,7 @@
 
 .container{
 	min-height: 40em;
+	
 	/*background-image: url(/images/background.jpg);*/
 }
 .navbar{
@@ -24,7 +25,8 @@ text-decoration: none;
 
 }
 body {
-	font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	//font-family: font-family: 'Arial Narrow', Arial, sans-serif;
+	
 	background-color: #f2f2f2;
 	margin-top: 0px;
 	margin-right: 0px;
@@ -36,15 +38,17 @@ body {
 
 footer {
 	/*text-align: left;*/
+	height: 5em;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	padding-left: 20px;
 	background-color: #717070;
 	color: #FFFFFF;
 	text-transform: uppercase;
 	font-weight: lighter;
 	letter-spacing: 2px;
 	border-top-width: 2px;
+	box-sizing:none;
+
 }
 
 
@@ -90,4 +94,28 @@ textarea{
 .profile-thumb img{
 	
 	height: 100%;
+}
+
+.delete {
+	width: 100px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	padding-top: 5px;
+	padding: 4px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 0px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	border: 3px solid #FFFFFF;
+	color: #337ab7;
+	transition: all 0.3s linear;
+}
+.delete:hover {
+	background-color: #c04441;
+	color: #c04441;
+	cursor: pointer;
 }

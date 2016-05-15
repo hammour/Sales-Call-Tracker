@@ -1,13 +1,10 @@
 import React from 'react';
 import EventPreview from './../EventPreview';
-
 import events from './../../collections/EventCollection';
-
 import EventModel from './../../models/EventModel';
 import $ from 'jquery';
 import User from './../../models/User';
 import Customer from './../../models/CustomerModel';
-
 import { Button, Modal } from 'react-bootstrap';
 
 
@@ -152,12 +149,12 @@ export default React.createClass({
 			//	console.log(salesUser);				
 				return (
 					
-		        	<div className="container col-sm-10">
+		        	<div className="container">
 
-		            	<div className='sales-dash-heading '>
+		            	<div>
 		            		<h2>My Events</h2>
 		            		<button className="button" onClick={this.open}>+ADD EVENT</button>	
-	            		</div>
+	            		
 	            		
 
 
@@ -200,14 +197,7 @@ export default React.createClass({
 							<select className="form-control" ref="customerIdInput">
 								{customerOptions}
 							</select>
-						
-
-					
-						
-						
-					
-
-		
+	
 						
 							<button onClick= {this.register}className="button" type="submit">Submit</button>
 				
@@ -217,14 +207,7 @@ export default React.createClass({
 					            <Button onClick={this.close}>Close</Button>
 					          </Modal.Footer>
 					        </Modal>
-					      
-
-
-
-
-
-
-
+					      </div>
 
 		            	<form className="form-horizontal  col-sm-10 filter-form" onSubmit={this.getUsers}>
 		
@@ -242,7 +225,9 @@ export default React.createClass({
 						</div>
 						</form>
 		            	<div className="col-sm-12">{eventsView}</div>
+		            	<div style={{clear: 'both'}} />
 		        	</div>
+
 		        );
 	        }
 	},	

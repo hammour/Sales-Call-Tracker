@@ -52,7 +52,7 @@ export default React.createClass({
 							<h4>Email: {this.state.salesReps[i].email}</h4>
 						</div>
 						<div className = "col-sm-3">
-							<button type ="submit" className="button">X DELETE</button>
+							<button type ="submit" className="delete">X DELETE</button>
 						</div>
 					</form>
 					</div>
