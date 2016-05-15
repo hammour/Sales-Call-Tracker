@@ -155,7 +155,7 @@ export default React.createClass({
 		            	<h1>Events</h1>
 		            	<form className="form-horizontal  col-sm-12 filter-form" onSubmit={this.getUsers}>
 		            	<div className="form-group">
-			            	<label  className="col-sm-3 control-label">Filter Events by Sales Rep</label>	
+			            	<label  className=" col-sm-3 control-label">Filter Events by Sales Rep</label>	
 			            	<div className="col-sm-7">
 				            	<select className="form-control" ref="salesUser">
 										<option value='all'>All</option>
@@ -172,7 +172,7 @@ export default React.createClass({
 								</select>
 							</div>
 						</div>
-						<div className="form-group">
+						<div className="col-sm-offset-3">
 							<button className="button" type="submit">Filter/Update</button>
 						</div>
 						</form>

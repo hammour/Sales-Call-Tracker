@@ -38,7 +38,7 @@ export default React.createClass({
 				
 				return (
 					<div key = {this.state.customer[i].id}>
-					<form id = {this.state.customer[i].id} className="event-container col-sm-7" onSubmit={this.delete}>
+					<form id = {this.state.customer[i].id} className="event-container col-sm-12" onSubmit={this.delete}>
 						
 						
 						<div className = "col-sm-9">
@@ -71,7 +71,7 @@ export default React.createClass({
 		// console.log(e.target.id);
 		$.ajax({
 
-        url: 'http://localhost:3000/api/v1/customer/'+e.target.id,
+        url: '/api/v1/customer/'+e.target.id,
         type: 'DELETE',
         success: function(success){ 
         	console.log(success);

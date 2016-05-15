@@ -1,6 +1,6 @@
 
 .container{
-	min-height: 40em;
+	min-height: 45em;
 	
 	/*background-image: url(/images/background.jpg);*/
 }
@@ -116,6 +116,12 @@ textarea{
 }
 .delete:hover {
 	background-color: #c04441;
-	color: #c04441;
+	color: black;
 	cursor: pointer;
+}
+.contact-message{
+	border: 3px solid #FFFFFF;
+	margin: 1em;
+	padding: 10px;
+	box-shadow: 0 0 5px #337ab7;
 }

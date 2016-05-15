@@ -40,9 +40,9 @@ export default React.createClass({
 				
 				return (
 					<div key = {this.state.salesReps[i].id}>
-					<form id = {this.state.salesReps[i].id} className="event-container col-sm-7" onSubmit={this.delete}>
+					<form id = {this.state.salesReps[i].id} className="event-container col-sm-12" onSubmit={this.delete}>
 						<div className ="profile-thumb col-sm-3">
-							<img src="http://beacontechs.com/images/Haythem.png"/>	
+							<img src="/images/genaric-image.png"/>	
 						</div>
 						
 						<div className = "col-sm-6">
