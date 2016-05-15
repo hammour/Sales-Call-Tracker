@@ -19,43 +19,43 @@ export default React.createClass({
 					<h1>Add Customer</h1>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">Customer Name</label>
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								<input className="form-control" type="text" placeholder="Customer Name"ref="name"/>
 							</div>
 						</div>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">Contact Name</label>
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								<input className="form-control" type="text" placeholder="Contact Name" ref="contactName"/>
 							</div>
 						</div>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">Email</label>
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								<input className="form-control" type="email" placeholder="email" ref="email"/>
 							</div>
 						</div>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">Address Line 1</label>
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								<input className="form-control" type="text" placeholder="Address Line One"ref="addressLineOne"/>
 							</div>
 						</div>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">Address Line 2</label>
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								<input className="form-control" type="text" placeholder="Address Line Two"ref="addressLineTwo"/>
 							</div>
 						</div>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">City</label>
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								<input className="form-control" type="text" placeholder="City"ref="city"/>
 							</div>
 						</div>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">State</label>	
-							<div className="col-sm-7">
+							<div className="col-sm-4">
 								
 								<select className="form-control" placeholder="State"ref="state">
 									<option value="AL">Alabama</option>

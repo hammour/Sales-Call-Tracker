@@ -54,7 +54,7 @@ export default React.createClass({
 				<h1>Add an Event</h1>
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Event Type</label>
-						<div className="col-sm-7">	
+						<div className="col-sm-4">	
 							<select className="form-control" ref="typeOfEvent">
 								<option value='visit'>Visit</option>
 								<option value='call'>Call</option>
@@ -69,21 +69,21 @@ export default React.createClass({
 
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Event Notes</label>
-						<div className="col-sm-7">	
+						<div className="col-sm-4">	
 							<textarea className="form-control" type="text" rows="3" placeholder="Notes" ref="eventNotes"/>
 						</div>
 					</div>
 
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Follow Up Date</label>
-						<div className="col-sm-7">	
+						<div className="col-sm-4">	
 							<input className="form-control" type="date"  ref="followUpDate"/>
 						</div>
 					</div>
 
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Customer ID</label>
-						<div className="col-sm-7">	
+						<div className="col-sm-4">	
 							<select className="form-control" ref="customerId">
 								{customerListOptions}
 							</select>
@@ -92,7 +92,7 @@ export default React.createClass({
 
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">User ID</label>
-						<div className="col-sm-7">	
+						<div className="col-sm-4">	
 							
 							<select className="form-control" ref="userId">
 								{userListOptions}

@@ -1,8 +1,8 @@
 import React from 'react';
 import EventPreview from './../EventPreview';
-import salesAddEvent from './addEvent';
+
 import events from './../../collections/EventCollection';
-import logEvent from './logEvent';
+
 import EventModel from './../../models/EventModel';
 import $ from 'jquery';
 import User from './../../models/User';
@@ -152,11 +152,11 @@ export default React.createClass({
 			//	console.log(salesUser);				
 				return (
 					
-		        	<div className="container">
+		        	<div className="container col-sm-10">
 
 		            	<div className='sales-dash-heading '>
 		            		<h2>My Events</h2>
-		            		<button className="button" onClick={this.open}>+ADD</button>	
+		            		<button className="button" onClick={this.open}>+ADD EVENT</button>	
 	            		</div>
 	            		
 
@@ -164,7 +164,7 @@ export default React.createClass({
 
 	            		        <Modal show={this.state.showModal} onHide={this.close}>
 					          <Modal.Header closeButton>
-					            <Modal.Title>Modal heading</Modal.Title>
+					            <Modal.Title>Add Event</Modal.Title>
 					          </Modal.Header>
 					          <Modal.Body>
 					 		

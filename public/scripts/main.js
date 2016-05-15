@@ -43,7 +43,7 @@ const router = (
 			<Route path="/" component={App}>
 			<Route path="/home" component={Home}/>
 			<Route path="/login" component={Login}/>
-			<Route path="/register" component={Register} onEnter={requireAuth}/>
+			<Route path="/register" component={Register}/>
 			<Route path="/addcustomer" component={AddCustomer} onEnter={requireAuth}/>
 			<Route path="/addevent" component={AddEvent} onEnter={requireAuth}/>
 			<Route path="/dashboard" component={Dashboard} onEnter={requireAuth}/>

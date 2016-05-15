@@ -20,21 +20,21 @@ export default React.createClass({
 				<h1>Register</h1>
 					<div className="form-group">
 						<label for="input11" className="col-sm-2 control-label">First Name</label>
-						<div className="col-sm-8">
+						<div className="col-sm-4">
 							<input className="form-control" id="input11" type="text" placeholder="first name"ref="firstName"/>
 						</div>
 					</div>
 
 					<div className="form-group">
 						<label for="input12" className="col-sm-2 control-label">Last Name</label>
-						<div className="col-sm-8">
+						<div className="col-sm-4">
 							<input className="form-control" id="input12" type="text" placeholder="last name" ref="lastName"/>
 						</div>
 					</div>
 
 					<div className="form-group">
 						<label for="input13" className="col-sm-2 control-label">Email</label>
-						<div className="col-sm-8">
+						<div className="col-sm-4">
 							<input className="form-control" id="input13" type="email" placeholder="email" ref="email"/>
 						</div>
 					</div>
@@ -42,7 +42,7 @@ export default React.createClass({
 					
 					<div className="form-group">
 						<label for="input14" className="col-sm-2 control-label">Password</label>
-						<div className="col-sm-8">
+						<div className="col-sm-4">
 							<input className="form-control" id="input14" type="password" placeholder="password" ref="password" />
 						</div>
 					</div>
@@ -50,7 +50,7 @@ export default React.createClass({
 					
 					<div className="form-group">
 						<label for="input15" className="col-sm-2 control-label">User Type</label>
-						<div className="col-sm-8">
+						<div className="col-sm-4">
 							<select className="form-control" placeholder="State"ref="userType">
 								<option value="admin">Admin</option>
 								<option value="salesManager">Sales Manager</option>
@@ -61,7 +61,7 @@ export default React.createClass({
 
 					<div className="form-group">
 						<label for="input16" className="col-sm-2 control-label">Image Url</label>
-						<div className="col-sm-8">
+						<div className="col-sm-4">
 							<input className="form-control" id="input16" type="text" placeholder="Type" ref="imageUrl"/>
 						</div>
 					</div>
