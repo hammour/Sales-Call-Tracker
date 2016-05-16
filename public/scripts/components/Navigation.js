@@ -23,7 +23,7 @@ export default React.createClass({
 								<div className="top-thumb"><img src={window.user.imageUrl}/></div>
 								
 							</div>
-							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
+							<div className="navbar-brand"><Link to="/">Home</Link></div>
 							<div className="navbar-brand"><Link to="/Dashboard">Dashboard</Link></div>
 							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>
 							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
@@ -41,7 +41,7 @@ export default React.createClass({
 
 
 							</div>
-							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
+							<div className="navbar-brand"><Link to="/">Home</Link></div>
 							<div className="navbar-brand"><Link to="/salesDash">Dashboard</Link></div>
 							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>
 							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
@@ -55,7 +55,7 @@ export default React.createClass({
 			return (<nav className="navbar navbar-default">
 						<div className="container-fluid">
 						
-							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
+							<div className="navbar-brand"><Link to="/">Home</Link></div>
 							<div className="navbar-brand"><Link to="/Login">Login</Link></div>
 							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
 							
@@ -76,7 +76,7 @@ export default React.createClass({
 			type: 'POST',
 			url: '/auth/logout'
 		});
-		browserHistory.push('/Home');
+		browserHistory.push('/');
 	}
 
 

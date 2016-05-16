@@ -73,7 +73,7 @@ export default React.createClass({
 			},
 			success: (successArg)=>{
 
-				browserHistory.push('/home');
+				browserHistory.push('/');
 			},
 			error: (errorArg)=>{
 				
