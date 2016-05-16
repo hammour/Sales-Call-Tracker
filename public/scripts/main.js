@@ -41,18 +41,16 @@ function requireAuth(nextState, replace) {
 const router = (
 	<Router history={browserHistory}>
 			<Route path="/" component={App}>
-			<Route path="/home" component={Home}/>
-			<Route path="/login" component={Login}/>
-			<Route path="/register" component={Register}/>
-			<Route path="/addcustomer" component={AddCustomer} onEnter={requireAuth}/>
-			<Route path="/addevent" component={AddEvent} onEnter={requireAuth}/>
-			<Route path="/dashboard" component={Dashboard} onEnter={requireAuth}/>
-			<Route path="/filter" component={Filter} onEnter={requireAuth}/>
-			<Route path="/contactus" component={ContactUs}/>
-			<Route path="/salesdash" component={SalesDash} onEnter={requireAuth}/>
-
-
-		</Route>
+				<IndexRoute component={Home}/>
+				<Route path="/login" component={Login}/>
+				<Route path="/register" component={Register}/>
+				<Route path="/addcustomer" component={AddCustomer} onEnter={requireAuth}/>
+				<Route path="/addevent" component={AddEvent} onEnter={requireAuth}/>
+				<Route path="/dashboard" component={Dashboard} onEnter={requireAuth}/>
+				<Route path="/filter" component={Filter} onEnter={requireAuth}/>
+				<Route path="/contactus" component={ContactUs}/>
+				<Route path="/salesdash" component={SalesDash} onEnter={requireAuth}/>
+			</Route>
 	</Router>
 );
 
