@@ -143,7 +143,7 @@ export default React.createClass({
 				console.log('success');
 				//this.state.user.set(registeredUser);
 				// console.log(this.state.user);
-				hashHistory.push('/Dashboard');
+				hashHistory.push('/filter');
 			},
 			error: (errorArg)=>{
 				

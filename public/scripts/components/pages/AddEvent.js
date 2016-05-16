@@ -130,7 +130,7 @@ export default React.createClass({
 			success: (successArg)=>{
 
 				 $('form').children('input:not(#submit)').val('');
-				//browserHistory.push('/filter');
+				browserHistory.push('/');
 
 
 
