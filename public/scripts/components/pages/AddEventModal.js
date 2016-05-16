@@ -14,7 +14,7 @@ export default React.createClass({
 		return (
 
         	<div>
-				<button className="button" onClick={this.open}>+ADD EVENT</button>	
+				<button className="button" onClick={this.open}>+ EVENT</button>	
 				<Modal show={this.state.showModal} onHide={this.close}>
 					<Modal.Header closeButton>
 						<Modal.Title>Add Event</Modal.Title>

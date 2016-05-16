@@ -30,7 +30,7 @@ export default React.createClass({
 	render: function() {
 		
 		if (!this.state.customer[0]){
-		 return (<div>still loading</div>);
+		 return (<div className="hidden">still loading</div>);
 		}
 		else{
 			

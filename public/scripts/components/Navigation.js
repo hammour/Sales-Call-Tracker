@@ -19,7 +19,10 @@ export default React.createClass({
 		if (window.user.userType === 'admin') {
 			return (<nav className="navbar navbar-default">
 						<div className="container-fluid">
-						
+							<div className="navbar-brand user-logged-in">
+								<div className="top-thumb"><img src={window.user.imageUrl}/></div>
+								
+							</div>
 							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
 							<div className="navbar-brand"><Link to="/Dashboard">Dashboard</Link></div>
 							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>
@@ -32,7 +35,12 @@ export default React.createClass({
 		else if(window.user.userType) {
 			return (<nav className="navbar">
 						<div className="container-fluid">
-						
+							<div className="navbar-brand user-logged-in">
+								<div className="top-thumb"><img src={window.user.imageUrl}/></div>
+								
+
+
+							</div>
 							<div className="navbar-brand"><Link to="/Home">Home</Link></div>
 							<div className="navbar-brand"><Link to="/salesDash">Dashboard</Link></div>
 							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>

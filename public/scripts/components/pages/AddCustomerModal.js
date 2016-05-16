@@ -14,7 +14,7 @@ export default React.createClass({
 		return (
 
         	<div>
-				<button className="button" onClick={this.open}>+Add Customer</button>	
+				<button className="button" onClick={this.open}>+ Customer</button>	
 				<Modal show={this.state.showModal} onHide={this.close}>
 					<Modal.Header closeButton>
 						<Modal.Title>Add Customer</Modal.Title>

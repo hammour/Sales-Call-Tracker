@@ -6,7 +6,7 @@ export default React.createClass({
 			
 				<div className="event-container col-sm-12">
 					<div className="event-left-container col-sm-4">
-						<div className="profile-thumb"><img  src='/images/genaric-image.png'/></div>
+						<div className="profile-thumb"><img  src={this.props.imageUrl}/></div>
 						<div className="sales-rep-name">{this.props.userFirstName}</div><div>{this.props.userLastName}</div>
 					</div>
 					

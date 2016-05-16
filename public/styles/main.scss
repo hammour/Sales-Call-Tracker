@@ -50,6 +50,9 @@ footer {
 	box-sizing:none;
 
 }
+footer div{
+	padding-left: 1em;
+}
 
 
 .button {
@@ -71,6 +74,7 @@ footer {
 	border: 3px solid #FFFFFF;
 	color: #337ab7;
 	transition: all 0.3s linear;
+	
 }
 .button:hover {
 	background-color: #FEFEFE;
@@ -95,7 +99,14 @@ textarea{
 	
 	height: 100%;
 }
-
+.top-thumb{
+	height: 4em;
+	box-shadow: 0 0 5px #337ab7;
+}
+.top-thumb img{
+	
+	height: 100%;
+}
 .delete {
 	width: 100px;
 	margin-top: 10px;
@@ -119,9 +130,37 @@ textarea{
 	color: black;
 	cursor: pointer;
 }
+.button-image-upload{
+	width: 100px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	padding-top: 5px;
+	padding: 4px;
+	text-align: center;
+	vertical-align: middle;
+	border-radius: 0px;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: 2px;
+	border: 3px solid #FFFFFF;
+	color: #337ab7;
+	transition: all 0.3s linear;
+	box-shadow: 0 0 5px #337ab7;
+}
+.button-image-upload:hover {
+	background-color: #FEFEFE;
+	color: #C4C4C4;
+	cursor: pointer;
+}
+
 .contact-message{
 	border: 3px solid #FFFFFF;
 	margin: 1em;
 	padding: 10px;
 	box-shadow: 0 0 5px #337ab7;
+}
+.user-logged-in{
+	float:right;
 }

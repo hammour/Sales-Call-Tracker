@@ -42,7 +42,7 @@ export default React.createClass({
 					<div key = {this.state.salesReps[i].id}>
 					<form id = {this.state.salesReps[i].id} className="event-container col-sm-12" onSubmit={this.delete}>
 						<div className ="profile-thumb col-sm-3">
-							<img src="/images/genaric-image.png"/>	
+							<img src={this.state.salesReps[i].imageUrl}/>	
 						</div>
 						
 						<div className = "col-sm-6">

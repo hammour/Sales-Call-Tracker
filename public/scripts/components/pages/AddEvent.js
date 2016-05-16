@@ -36,8 +36,8 @@ export default React.createClass({
 
 	},
 	render: function() {
-		if (!this.state.userList[0]){return (<div>Still loading</div>);}
-			else if(!this.state.customer[0]){return (<div>Still loading</div>);}
+		if (!this.state.userList[0]){return (<div className="hidden">Still loading</div>);}
+			else if(!this.state.customer[0]){return (<div className="hidden">Still loading</div>);}
 			else{
 				const userListOptions = this.state.userList.map((rep, i, array)=>{
 				return(<option key = {i} value={this.state.userList[i].id}>{this.state.userList[i].firstName}</option>);
@@ -51,7 +51,7 @@ export default React.createClass({
 		return (
 			<div className="container">	
 				<form className="form-horizontal container col-sm-10 " onSubmit={this.register}>
-				<h1>Add an Event</h1>
+				<h1>Add New Event</h1>
 					<div className="form-group">
 						<label  className="col-sm-3 control-label">Event Type</label>
 						<div className="col-sm-4">	

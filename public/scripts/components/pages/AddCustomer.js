@@ -16,7 +16,7 @@ export default React.createClass({
 			<div className="container">
 				
 				<form className="form-horizontal container col-sm-10 " onSubmit={this.register}>
-					<h1>Add Customer</h1>
+					<h1>Add New Customer</h1>
 						<div className="form-group">
 							<label  className="col-sm-3 control-label">Customer Name</label>
 							<div className="col-sm-4">

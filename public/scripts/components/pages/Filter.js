@@ -58,11 +58,11 @@ export default React.createClass({
 		setTimeout(1000);
 		if(!this.state.event.get(0)){
 
-			return (<div>Still loading</div>);
+			return (<div className="hidden">Still loading</div>);
 		}
 		else if(!this.state.salesReps){
 
-			return (<div>Still loading</div>);
+			return (<div className="hidden">Still loading</div>);
 		}
 
 		else { 
@@ -85,7 +85,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 					}
@@ -98,7 +99,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 
@@ -119,7 +121,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 					}
@@ -132,7 +135,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 

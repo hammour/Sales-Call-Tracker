@@ -26,7 +26,7 @@ export default React.createClass({
 	render: function() {
 		
 		if (!this.state.contact[0]){
-		 return (<div>still loading</div>);
+		 return (<div className="hidden">still loading</div>);
 		}
 		else{
 			console.log(this.state.contact[0]);
