@@ -48,7 +48,7 @@ export default React.createClass({
 						<div className = "col-sm-6">
 							<h4>User ID: {this.state.salesReps[i].id}</h4>
 							<h4>First Name: {this.state.salesReps[i].firstName}</h4>
-							<h4>Last Name: {this.state.salesReps[i].LastName}</h4>
+							<h4>Last Name: {this.state.salesReps[i].lastName}</h4>
 							<h4>Email: {this.state.salesReps[i].email}</h4>
 						</div>
 						<div className = "col-sm-3">
