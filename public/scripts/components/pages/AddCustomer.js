@@ -1,7 +1,7 @@
 import React from 'react';
 
 import $ from 'jquery';
-import{hashHistory} from 'react-router';
+import{browserHistory} from 'react-router';
 import customer from '../../models/CustomerModel';
 
 export default React.createClass({
@@ -139,11 +139,10 @@ export default React.createClass({
 				Accept: 'application/json'
 			},
 			success: (successArg)=>{
-				console.log(successArg);
-				console.log('success');
+				
 				//this.state.user.set(registeredUser);
 				// console.log(this.state.user);
-				hashHistory.push('/filter');
+				browserHistory.push('/filter');
 			},
 			error: (errorArg)=>{
 				

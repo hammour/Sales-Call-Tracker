@@ -74,7 +74,7 @@ export default React.createClass({
 		// console.log(e.target.id);
 		$.ajax({
 
-        url: 'http://localhost:3000/api/v1/user/'+e.target.id,
+        url: '/api/v1/user/'+e.target.id,
         type: 'DELETE',
         success: function(success){ 
         	console.log(success);
