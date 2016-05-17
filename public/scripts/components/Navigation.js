@@ -43,7 +43,6 @@ export default React.createClass({
 							</div>
 							<div className="navbar-brand"><Link to="/">Home</Link></div>
 							<div className="navbar-brand"><Link to="/salesDash">Dashboard</Link></div>
-							<div className="navbar-brand"><Link to="/Filter">Events</Link></div>
 							<div className="navbar-brand"><Link to="/ContactUs">Contact Us</Link></div>
 							<div className="navbar-brand"><a href="#" onClick={this.logout}>Logout</a></div>
 						</div>

@@ -61,7 +61,13 @@ export default React.createClass({
 			window.user=loggedArg;
 			this.setState({user:loggedArg});
 			console.log('logged in');
-			browserHistory.push('/dashboard');
+			
+			if (window.user.userType==='admin'){
+				browserHistory.push('/dashboard');
+			}
+				else{
+					browserHistory.push('/salesDash');
+				};
 		},
 		error: (errorArg) => {
 				

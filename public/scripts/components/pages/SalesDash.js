@@ -6,6 +6,7 @@ import $ from 'jquery';
 import User from './../../models/User';
 import Customer from './../../models/CustomerModel';
 import { Button, Modal } from 'react-bootstrap';
+import {browserHistory} from 'react-router';
 
 
 
@@ -14,11 +15,11 @@ export default React.createClass({
 		return {
 			event: new EventModel,
 			error:'',
-			salesReps:  new User,
+			salesReps:  window.user,
 			events: events,
 			customer: new Customer,
 			
-			salesUserFilter: 'all',
+			salesUserFilter: window.user.id,
 			eventsTypeFilter: 'all',
 			customerFilter: 'all',
 			customerData: new Customer,
@@ -31,7 +32,8 @@ export default React.createClass({
 		this.state.event.on('change', (eventData)=> {
 			this.setState({event: this.state.event,
 				
-				events:events
+				events:events,
+				users:users
 				
 			});
 			
@@ -56,14 +58,14 @@ export default React.createClass({
 
 
 	render: function() {
-		
+		setTimeout(1000);
 		if(!this.state.event.get(0)){
 
-			return (<div>Still loading</div>);
+			return (<div className="hidden">Still loading</div>);
 		}
 		else if(!this.state.salesReps){
 
-			return (<div>Still loading</div>);
+			return (<div className="hidden">Still loading</div>);
 		}
 
 		else { 
@@ -84,7 +86,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 					}
@@ -97,7 +100,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 
@@ -118,7 +122,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 					}
@@ -131,7 +136,8 @@ export default React.createClass({
 									eventNotes={this.state.event.get(i).eventNotes}
 									customerName={this.state.event.get(i).customer.name}
 									typeOfEvent={this.state.event.get(i).typeOfEvent}
-									followUpDate={this.state.event.get(i).followUpDate}/>
+									followUpDate={this.state.event.get(i).followUpDate}
+									imageUrl={this.state.event.get(i).user.imageUrl}/>
 			            	</div>
 							); 
 
@@ -272,9 +278,11 @@ export default React.createClass({
 			Accept: 'application/json'
 		},
 		success: (successArg)=>{
-			console.log('logged');
+			
 			//$('form').children('input:not(#submit)').val('');
-			//browserHistory.push('/filter');
+			
+			browserHistory.push('/salesDash');
+			window.reload();
 
 
 
